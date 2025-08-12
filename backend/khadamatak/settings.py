@@ -47,7 +47,12 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'corsheaders',
     'django.contrib.sites', 
-    'modeltranslation'
+    'modeltranslation',
+     'accounts',
+    'users',
+    'services',
+    'orders',
+    'ratings',
 ]
 
 MIDDLEWARE = [
@@ -83,6 +88,10 @@ WSGI_APPLICATION = 'khadamatak.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=os.getenv('DATABASE_URL'))
+# }
 DATABASES = {
     'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
 }
@@ -134,3 +143,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+AUTH_USER_MODEL = 'users.User'

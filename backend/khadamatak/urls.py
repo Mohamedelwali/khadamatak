@@ -11,5 +11,15 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('bookings/', booking_list, name='booking-list'),
     path('bookings/<int:pk>/', booking_detail, name='booking-detail'),
+<<<<<<< HEAD
     path('', include(router.urls)),  
+=======
+
+    # Services app endpoints
+    path('api/services/', include('services.urls')),
+
+    # Reviews app endpoints
+    path('api/reviews/', include('reviews.urls')),
+
+>>>>>>> master
 ]

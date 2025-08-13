@@ -49,12 +49,13 @@ INSTALLED_APPS = [
     'corsheaders',
     'django.contrib.sites', 
     'modeltranslation',
-     'accounts',
+    'accounts',
     'users',
     'services',
     'orders',
     'ratings',
     'bookings', 
+    'reviews',
 ]
 
 MIDDLEWARE = [

@@ -54,12 +54,8 @@ INSTALLED_APPS = [
     'services',
     'orders',
     'ratings',
-<<<<<<< HEAD
     'bookings', 
     'reviews',
-=======
-    
->>>>>>> 9a867c4 (create dashboard for worker and clients)
 ]
 
 MIDDLEWARE = [

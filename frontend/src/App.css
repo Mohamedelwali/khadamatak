@@ -10,8 +10,8 @@ html, body {
 }
 
 .main-content {
-  flex: 1; /* ده اللي بيخلي المحتوى يتمدد ويدفع الفوتر تحت */
-  padding-bottom: 20px; /* مسافة بين المحتوى والفوتر */
+  flex: 1; 
+  padding-bottom: 20px; 
 }
 
 

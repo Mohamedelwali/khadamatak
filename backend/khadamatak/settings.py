@@ -55,9 +55,11 @@ INSTALLED_APPS = [
     'services',
     'orders.apps.OrdersConfig',
     'ratings',
+
     'bookings', 
     'invoices',
     'reviews',
+
 ]
 
 MIDDLEWARE = [

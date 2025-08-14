@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
+
+
 from bookings.views import booking_list, booking_detail
 from rest_framework.routers import DefaultRouter
 from invoices.views import InvoiceViewSet  
@@ -19,4 +21,9 @@ urlpatterns = [
     path('api/reviews/', include('reviews.urls')),
     path('api/accounts/', include('accounts.urls')),
 
+
+    path('auth/', include('djoser.urls')),
+    path('auth/', include('djoser.urls.jwt')),
+
+    path('api/accounts/', include('accounts.urls')),
 ]

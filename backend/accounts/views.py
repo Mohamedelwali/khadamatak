@@ -68,6 +68,8 @@ class ChangePasswordView(generics.UpdateAPIView):
         serializer = self.get_serializer(data=request.data, context={'request': request})
         serializer.is_valid(raise_exception=True)
 
+
+        # Set new password (after validation)
         user = self.get_object()
         user.set_password(serializer.validated_data['new_password'])
         user.save()

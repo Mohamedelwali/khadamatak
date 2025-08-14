@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="nav-left">
-        <span className="logo">خدماتك</span>
+        <span className="logo" onClick={() => window.location.href = '/home'}>خدماتك</span>
         <span className="tagline">منصة الخدمات الذكية</span>
       </div>
       <div className="nav-center">
@@ -14,8 +14,8 @@ const Navbar = () => {
       </div>
       <div className="nav-right">
         <FaBell className="icon" />
-        <span className="user">rewan</span>
-        <span className="role">عميل</span>
+        <span className="user">اسم المستخدم</span>
+        <span className="role">مستخدم</span>
       </div>
     </nav>
   );

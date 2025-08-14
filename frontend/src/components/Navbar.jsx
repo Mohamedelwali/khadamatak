@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaBell, FaHeart, FaMapMarkerAlt } from 'react-icons/fa';
+import './Navbar.css';
 
 const Navbar = () => {
   return (

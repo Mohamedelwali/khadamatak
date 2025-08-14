@@ -10,7 +10,7 @@ import './Home.css';
 const Home = () => {
   return (
     <div className="home">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="main-content">
         <Sidebar />
         <div className="content">
@@ -19,7 +19,7 @@ const Home = () => {
           <Categories />
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-.sidebar {
+.sidebarr {
   width: 200px;
   background: #fff;
   padding: 20px 10px;
@@ -34,6 +34,7 @@
   transition: background 0.3s;
   font-size: 14px;
   color: #333;
+  text-decoration: none;
 }
 
 .sidebar-item:hover {
@@ -41,7 +42,7 @@
 }
 
 .icon {
-  font-size: 20px; /* حجم الأيقونة */
+  font-size: 20px; 
   margin-bottom: 5px;
 }
 
@@ -51,7 +52,6 @@
 .settings { color: #9b59b6; }
 .logout { color: #e74c3c; }
 
-/* إزالة أي خطوط غريبة */
 .sidebar-item:focus,
 .sidebar-item:active {
   outline: none;

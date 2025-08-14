@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-<<<<<<< HEAD
+
 from bookings.views import booking_list, booking_detail
 
 urlpatterns = [
@@ -30,13 +30,8 @@ urlpatterns = [
     # Reviews app endpoints
     path('api/reviews/', include('reviews.urls')),
 
-=======
-
-urlpatterns = [
-
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
 
     path('api/accounts/', include('accounts.urls')),
->>>>>>> 9a867c4 (create dashboard for worker and clients)
 ]

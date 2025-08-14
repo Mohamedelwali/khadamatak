@@ -1,11 +1,9 @@
 from django.db import models
 from django.utils import timezone
 
-
 class ServiceCategory(models.Model):
     """Type of service (e.g., Plumbing, Carpentry)."""
     name = models.CharField(max_length=120, unique=True)
-    slug = models.SlugField(unique=True)
     created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):

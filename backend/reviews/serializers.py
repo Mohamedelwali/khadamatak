@@ -3,6 +3,7 @@ from .models import Review
 
 
 class ReviewSerializer(serializers.ModelSerializer):
+    created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M", read_only=True)
     class Meta:
         model = Review
         fields = ["id", "service", "reviewer_name", "rating", "comment", "created_at"]

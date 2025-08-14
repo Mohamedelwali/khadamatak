@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'django.contrib.sites', 
     'modeltranslation',
+    'djoser',
     'accounts',
     'users',
     'services',

@@ -6,4 +6,4 @@ from .models import Profile
 @receiver(post_save, sender=User)
 def create_profile_for_new_user(sender, instance, created, **kwargs):
     if created:
-        Profile.objects.create(user=instance, phone='01000000000', role='client')
+        Profile.objects.create(user=instance)

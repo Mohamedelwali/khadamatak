@@ -14,6 +14,7 @@ from pathlib import Path
 import dj_database_url
 import os
 from dotenv import load_dotenv
+from datetime import timedelta
 
 
 load_dotenv()
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'corsheaders',
+    'djoser',
     'django.contrib.sites', 
     'modeltranslation',
     'djoser',
@@ -60,6 +62,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -70,6 +73,40 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'khadamatak.urls'
+
+CORS_ALLOW_ALL_ORIGINS = True # Allow all origins for development purposes
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
+    'AUTH_HEADER_TYPES': ('Bearer',),
+}
+
+DJOSER = {
+    "SERIALIZERS": {
+        "user_create": "app.serializers.CustomUserCreateSerializer",
+        "user": "app.serializers.CustomUserSerializer",
+        "current_user": "app.serializers.CustomUserSerializer",
+        "token_obtain_pair": "app.serializers.CustomTokenObtainPairSerializer",
+    },
+    "PERMISSIONS": {
+        "user_create": ["rest_framework.permissions.AllowAny"],
+        "user": ["rest_framework.permissions.IsAuthenticated"],
+    },
+    "LOGIN_FIELD": "username", 
+    "VIEWSET_CLASS": "app.views.CustomUserViewSet", 
+    }
+
+
 
 TEMPLATES = [
     {
@@ -148,3 +185,28 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User'
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+]
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
+
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+]

@@ -17,9 +17,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from bookings.views import booking_list, booking_detail
-
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+    TokenVerifyView
+)
 urlpatterns = [
-    path('admin/', admin.site.urls),
+# Accounts app
+    path('api/accounts/', include('accounts.urls')),
+
+    # JWT Endpoints (SimpleJWT)
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
+
     path('bookings/', booking_list, name='booking-list'),
     path('bookings/<int:pk>/', booking_detail, name='booking-detail'),
 
@@ -28,12 +39,4 @@ urlpatterns = [
 
     # Reviews app endpoints
     path('api/reviews/', include('reviews.urls')),
-
-    # authentication endpoints
-    path('auth/', include('djoser.urls')),
-    path('auth/', include('djoser.urls.jwt')),
-
-    # accounts app endpoints
-    path('api/accounts/', include('accounts.urls')),
-    
 ]

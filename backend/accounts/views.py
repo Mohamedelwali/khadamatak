@@ -1,7 +1,13 @@
 from rest_framework import generics, permissions
 from django.contrib.auth import get_user_model
 from .models import Profile
-from .serializers import ProfileSerializer
+from rest_framework_simplejwt.views import TokenObtainPairView
+from .serializers import ProfileSerializer , MyTokenObtainPairSerializer
+
+
+class MyTokenObtainPairView(TokenObtainPairView):
+    serializer_class = MyTokenObtainPairSerializer
+
 
 User = get_user_model()
 
